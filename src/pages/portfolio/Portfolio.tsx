@@ -19,18 +19,28 @@ export const PortfolioPage: React.FC = () => {
 
             <main className={styles['content']}>
                 <div className={styles['container']}>
-                    <div className={styles['filter']}>
-                        <button className={
-                            [styles['filter__item'], styles['filter__item--active']].join(' ')
-                        }>
-                            React<span className={styles['item-counter']}>2</span>
-                        </button>
-                        <button className={styles['filter__item']}>
-                            Vue<span className={styles['item-counter']}>1</span></button>
-                        <button className={styles['filter__item']}>
-                            Express<span className={styles['item-counter']}>0</span></button>
-                        <button className={styles['filter__item']}>
-                            NestJs<span className={styles['item-counter']}>3</span></button>
+                    <div className={styles['content-inner']}>
+                        <div className={styles['filter']}>
+                            <button className={
+                                [styles['filter__btn'], styles['filter__btn--active']].join(' ')
+                            }>
+                                React<span className={styles['item-counter']}>2</span>
+                            </button>
+                            <button className={styles['filter__btn']}>
+                                Vue<span className={styles['item-counter']}>1</span></button>
+                            <button className={styles['filter__btn']}>
+                                Express<span className={styles['item-counter']}>0</span></button>
+                            <button className={styles['filter__btn']}>
+                                NestJs<span className={styles['item-counter']}>3</span></button>
+                        </div>
+
+                        <div className={styles['cards']}>
+                            <div className={styles['card']}>CARD</div>
+                            <div className={styles['card']}>CARD</div>
+                            <div className={styles['card']}>CARD</div>
+                            <div className={styles['card']}>CARD</div>
+                            <div className={styles['card']}>CARD</div>
+                        </div>
                     </div>
                 </div>
             </main>

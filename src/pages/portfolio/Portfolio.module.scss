@@ -1,5 +1,6 @@
 $text-dark: rgb(57, 20, 0);
 $text-dark-gray: rgba(57, 20, 0, 0.64);
+$accent: #EF6D58;
 
 .container {
     width: 1170px;
@@ -40,6 +41,7 @@ $text-dark-gray: rgba(57, 20, 0, 0.64);
 }
 
 .sub-title {
+    font-weight: 400;
     text-align: center;
     color: lightgray;
 }
@@ -48,21 +50,42 @@ $text-dark-gray: rgba(57, 20, 0, 0.64);
     height: 100%;
     min-height: calc(100vh - 400px);
     background-color: #FDF0E9;
+    padding: 68px 0;
+}
+
+.content-inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: 68px;
 }
 
 .filter {
-    padding: 68px 0;
     display: flex;
     justify-content: center;
     column-gap: 60px;
 }
 
-.filter__item {
+.filter__btn {
     @extend .text;
     color: $text-dark-gray;
+    border-bottom: 2px solid transparent;
+
+    &:hover {
+        color: $accent;
+    }
+
+    &:focus {
+        border-color: $text-dark-gray;
+    }
+
+    &:active {
+        color: $accent;
+        border-color: $accent;
+    }
+
 }
 
-.filter__item--active {
+.filter__btn--active {
     @extend .text;
     color: $text-dark;
 }
@@ -75,4 +98,11 @@ $text-dark-gray: rgba(57, 20, 0, 0.64);
 button {
     border: none;
     background-color: transparent;
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
 }
+
+
