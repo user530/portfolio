@@ -1,4 +1,4 @@
-$text-dark: rgb(57, 20, 0);
+$text-dark: rgb(56, 20, 0);
 $text-dark-gray: rgba(57, 20, 0, 0.64);
 $accent: #EF6D58;
 
@@ -105,4 +105,103 @@ button {
     }
 }
 
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 30px;
+    row-gap: 32px;
+}
+
+.card {
+    position: relative;
+    background-image: url(https://cataas.com/cat/cute);
+    background-size: cover;
+    height: 416px;
+    overflow: hidden;
+    border-radius: 6px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: #5C2000;
+        opacity: 0.3;
+        z-index: 1;
+    }
+
+    &:hover {
+        .card__info {
+            top: 10px;
+        }
+
+        .info__tags { 
+            display: none;
+        }
+
+        .card__details {
+            transform: translateY(0);
+        }
+    }
+}
+
+.card__info {
+    position: absolute;
+    top: 256px;
+    right: 0;
+    left: 0;
+    padding: 0 48px;
+    z-index: 2;
+    transition: 0.5s;
+}
+
+.info__tags {
+    margin-bottom: 23px;
+    display: flex;
+    gap: 10px;
+
+    li {
+        padding: 3px 16px;
+        border-radius: 40px;
+        background-color: white;
+        color: $text-dark;
+        @extend .text;
+        font-weight: 500;
+    }
+}
+
+.info__title {
+    text-shadow: 1.5px 1.5px $text-dark;
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: bolder;
+    color: white;
+}
+
+
+.card__details {
+    position: absolute;
+    top: 20%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #28293E;  
+    z-index: 3;
+    transition: 0.5s;
+    transform: translateY(100%);
+    padding: 16px;
+
+    color: white;
+    line-height: 1.5;
+
+    p + p {
+        margin-top: 16px;
+    }
+}
+
+ul {
+    list-style-type: none;
+}
 
