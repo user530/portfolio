@@ -126,9 +126,9 @@ export const PortfolioPage: React.FC = () => {
 
                         </div>
 
-                        {/* <div className={styles['cards-pagination']}>
+                        <div className={styles['cards-pagination']}>
                             <button className={styles['btn']}>Load more</button>
-                        </div> */}
+                        </div>
                     </div>
                 </section>
 

@@ -3,36 +3,67 @@ $text-dark-gray: rgba(57, 20, 0, 0.64);
 $accent: #EF6D58;
 
 .container {
-    width: 1170px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 15px;
     margin: 0 auto;
+    
+    @media (max-width: 1199px) {
+        padding: 0 80px;        
+    }
+    
+    @media (max-width: 767px) {
+        max-width: 470px;
+        padding: 0 23px;        
+    }
 }
 
 .title {
     background-color: #28293E;
     color: white;
     padding: 84px 0 66px 0;
+
+    @media (max-width: 1439px) {
+        padding: 24px 0 40px 0;
+    }
+
+    @media (max-width: 991px) {
+        padding: 10px 0 20px 0;
+    }
 }
 
 .title__inner {
     display: flex;
     flex-direction: column;
     row-gap: 1.5rem;
+
+    @media (max-width: 991px) {
+        row-gap: 0.5rem;
+    }
 }
 
 .h1 {
     font-size: 4.5rem;
     font-weight: bolder;
-    line-height: 5rem;
+    line-height: 1.25;
+
+    @media (max-width: 1439px) {
+        font-size: 3.5rem;
+    }
 }
 
 .text {
     font-size: 1rem;
-    line-height: 2rem;
+    line-height: 2;
+    
+    @media (max-width: 991px) {
+        line-height: 1.5
+    }
 }
 
 .text-small {
     font-size: 0.88rem;
-    line-height: 1.5rem;
+    line-height: 1.7;
 }
 
 .main-title {
@@ -53,6 +84,18 @@ $accent: #EF6D58;
 
     section + section {
         padding-top: 112px;
+
+        @media (max-width: 1439px) {
+            padding-top: 60px;
+        }
+
+        @media (max-width: 767px) {
+            padding-top: 40px;
+        }
+    }
+
+    @media (max-width: 1439px) {
+        padding: 38px 0;
     }
 }
 
@@ -64,7 +107,20 @@ $accent: #EF6D58;
     display: flex;
     justify-content: center;
     column-gap: 60px;
-    margin-bottom: 68px;
+
+    @media (max-width: 767px) {
+        column-gap: 30px;
+        width: calc(50% + 50vw);
+        padding-right: 23px;
+        justify-content: flex-start;
+        overflow: hidden;
+        overflow-x: auto;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
 }
 
 .filter__btn {
@@ -112,16 +168,35 @@ button {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 30px;
     row-gap: 32px;
-    margin-bottom: 80px;
+    margin-top: 68px;
+    
+    @media (max-width: 1439px) {
+        margin-top: 38px;
+    }
+    
+    @media (max-width: 1199px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (max-width: 767px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
 }
 
 .card {
     position: relative;
     background-image: url(https://cataas.com/cat/cute);
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     height: 416px;
     overflow: hidden;
     border-radius: 6px;
+
+    @media (max-width: 1199px) {
+        height: 360px;    
+    }
 
     &::after {
         content: '';
@@ -152,12 +227,22 @@ button {
 
 .card__info {
     position: absolute;
-    top: 256px;
+    top: 62%;
     right: 0;
     left: 0;
     padding: 0 48px;
     z-index: 2;
     transition: 0.5s;
+
+    @media (max-width: 1199px) {
+        padding: 0 30px;
+    }
+
+    @media (max-width: 991px) {
+        padding: 0 16px;
+    }
+
+    
 }
 
 .info__tags {
@@ -178,11 +263,14 @@ button {
 .info__title {
     text-shadow: 1.5px 1.5px $text-dark;
     font-size: 40px;
-    line-height: 48px;
+    line-height: 1.2;
     font-weight: bolder;
     color: white;
-}
 
+    @media (max-width: 991px) {
+            font-size: 32px;
+    }
+}
 
 .card__details {
     position: absolute;
@@ -211,9 +299,19 @@ ul {
 .cards-pagination {
     display: flex;
     justify-content: center;
+    margin-top: 80px;
+
+    @media (max-width: 1439px) {
+        margin-top: 58px;
+    }
+
+    @media (max-width: 1439px) {
+        margin-top: 30px;
+    }
 }
 
 .btn {
+    display: inline-block;
     padding: 17px 43px;
     font-size: 14px;
     font-weight: 900;
@@ -224,6 +322,10 @@ ul {
     border-radius: 6px;
     transition: 0.3s;
     box-shadow: 0 3px 9px 0 rgba(57, 20, 0, 0.08);
+
+    @media (max-width: 991px) {
+        padding: 17px 26px;
+    }
 
     &:hover {
         box-shadow: 0 3px 9px 0 $accent;
@@ -256,37 +358,94 @@ ul {
     background-color: $accent;
     border-radius: 6px;
     display: flex;
-    column-gap: 56px;
+    justify-content: space-between;
+
+    @media (max-width: 1439px) {
+        padding: 50px;
+    }
+
+    @media (max-width: 991px) {
+        padding: 25px;
+    }
+
+    @media (max-width: 767px) {
+        flex-direction: column-reverse;
+        row-gap: 37px;
+        padding: 32px 28px;
+    }
 }
 
 .about__left {
     padding-top: 55px;
     flex-grow: 1;
+    max-width: 48%;
     color: white;
 
     .h2 {
         margin-bottom: 0.5em;
+        max-width: 13ch;
     }
 
     p {
         margin-bottom: 34px;
         @extend .text;
         opacity: 0.64;
+        line-height: 2;
+    }
+    
+    @media (max-width: 991px) {
+        padding-top: 30px;
+    }
+
+    @media (max-width: 767px) {
+        max-width: 100%;
+        padding-top: 0;
+
+        p {
+            margin-bottom: 21px;
+        }
     }
 }
 
 .h2 {
     font-size: 56px;
     font-weight: 800;
-    line-height: 64px;
+    line-height: 1.14;
     letter-spacing: -1px;
+
+    @media (max-width: 1439px) {
+        font-size: 48px;
+    }
+
+    @media (max-width: 1199px) {
+        font-size: 44px;  
+    }
+
+    @media (max-width: 991px) {
+        font-size: 38px;  
+    }
+
+    @media (max-width: 767px) {
+        font-size: 40px;
+        font-weight: 700;  
+    }
 }
 
 .about__right {
     position: relative;
-    width: 430px;
+    max-width: 430px;
+    width: 44%;
     aspect-ratio: 1;
     flex-shrink: 0;
+
+    @media (max-width: 991px) {
+        width: 46%;   
+    }
+    
+    @media (max-width: 767px) {
+        max-width: 100%;
+        width: 100%;
+    }
 }
 
 img {
@@ -297,9 +456,11 @@ img {
 
 .img-rect {
     position: absolute;
-    left: 14px;
-    bottom: 104px;
+    left: 3.3%;
+    bottom: 24.2%;
     z-index: 3;
+    width: 49.8%;
+    height: 26%;
 }
 
 .img-star {
@@ -307,13 +468,18 @@ img {
     top: 0;
     left: 0;
     z-index: 4;
+    width: 46.5%;
+    height: 51.2%;
 }
 
 .img-circle {
     position: absolute;
     bottom: 0;
-    left: 70px;
+    left: 16.3%;
     z-index: 1;
+
+    width: 74%;
+    aspect-ratio: 1;
 
     animation-name: rotate;
     animation-duration: 3s;
@@ -324,14 +490,17 @@ img {
 .img-photo {
     position: absolute;
     right: 0;
-    bottom: 69px;
+    bottom: 16%;
     background-color: #F7CC47;
     border-radius: 200px 200px 14px 14px;
     overflow: hidden;
     z-index: 2;
 
+    width: 57.2%;
+    height: 70.9%;
+
     img {
-        transform: translateY(25px)
+        transform: translateY(11%)
     }
 }
 
@@ -347,6 +516,14 @@ img {
 
     &__inner {
         padding-block: 43px;
+
+        @media (max-width: 1199px) {
+            padding-block: 30px;
+        }
+
+        @media (max-width: 991px) {
+            padding-block: 24px;
+        }
     }
 }
 
