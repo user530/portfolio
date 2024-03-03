@@ -13,9 +13,9 @@ export const Navbar: React.FC = () => {
                     </a>
 
                     <nav className={styles['nav-bar']}>
-                        <a className={styles['nav-bar__btn']} href="#!">Portfolio</a>
-                        <a className={styles['nav-bar__btn']} href="#!">About</a>
-                        <a className={styles['nav-bar__btn']} href="https://github.com/user530">GitHub</a>
+                        <a className={styles['nav-bar__btn']} href="#!" target='_blank' rel="noreferrer">Portfolio</a>
+                        <a className={styles['nav-bar__btn']} href="#!" target='_blank' rel="noreferrer">About</a>
+                        <a className={styles['nav-bar__btn']} href="https://github.com/user530" target='_blank' rel="noreferrer" >GitHub</a>
                     </nav>
 
                     <button className={styles['contact-btn']}>
