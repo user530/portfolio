@@ -18,9 +18,9 @@ export const Navbar: React.FC = () => {
                         <a className={styles['nav-bar__btn']} href="https://github.com/user530" target='_blank' rel="noreferrer" >GitHub</a>
                     </nav>
 
-                    <button className={styles['contact-btn']}>
+                    <a href='mailto:m.timarsuev@gmail.com' className={styles['contact-btn']}>
                         Contact
-                    </button>
+                    </a>
                 </div>
             </div>
         </header>
