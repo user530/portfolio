@@ -4,6 +4,7 @@ import img1 from '../../public/about-img1.png';
 import img2 from '../../public/about-img2.png';
 import img3 from '../../public/about-img3.png';
 import photo from '../../public/about-photo.png';
+import { FaWhatsapp, FaTelegram, FaLinkedin, FaPhoneAlt } from 'react-icons/fa';
 
 export const PortfolioPage: React.FC = () => {
     return (
@@ -125,9 +126,9 @@ export const PortfolioPage: React.FC = () => {
 
                         </div>
 
-                        <div className={styles['cards-pagination']}>
+                        {/* <div className={styles['cards-pagination']}>
                             <button className={styles['btn']}>Load more</button>
-                        </div>
+                        </div> */}
                     </div>
                 </section>
 
@@ -137,10 +138,12 @@ export const PortfolioPage: React.FC = () => {
                             <div className={styles['about__left']}>
                                 <h2 className={styles['h2']}>Help To Build Your Dream Project</h2>
                                 <p>A digital agency is a business you hire to outsource your digital marketing efforts, instead of handling in-house.</p>
-                                <button className={
+                                <a className={
                                     [styles['btn'],
                                     styles['btn--special']].join(' ')
-                                }>Contact now</button>
+                                }
+                                    href='mailto:m.timarsuev@gmail.com'
+                                >Contact now</a>
                             </div>
                             <div className={styles['about__right']}>
                                 <img src={img1} alt="img-rect" className={styles['img-rect']} width={214} height={112} />
@@ -154,6 +157,19 @@ export const PortfolioPage: React.FC = () => {
                     </div>
                 </section>
             </main >
+
+            <footer className={styles['footer']}>
+                <div className={styles['container']}>
+                    <div className={styles['footer__inner']}>
+                        <div className={styles['social-block']}>
+                            <a href="tel:+79271557757"><FaPhoneAlt /></a>
+                            <a href="https://api.whatsapp.com/send?phone=79271557757"><FaWhatsapp /></a>
+                            <a href="https://t.me/@tmv95"><FaTelegram /></a>
+                            <a href="www.linkedin.com/in/magomed-timarsuev-7249581aa" target='_blank' rel='noreferrer'><FaLinkedin /></a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </>
     )
 }

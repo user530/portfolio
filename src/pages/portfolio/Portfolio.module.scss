@@ -341,5 +341,44 @@ img {
     }
 }
 
+.footer {
+    background-color: #28293E;
+    color: white;
 
+    &__inner {
+        padding-block: 43px;
+    }
+}
+
+.social-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 24px;
+
+    a {
+        width: 48px;
+        height: 48px;
+        font-size: 24px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background-color: $accent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.3s;
+
+        svg {
+            transition: 0.3s;
+        }
+
+        &:hover {
+            background-color: white;
+
+            svg {
+                fill: $accent;
+            }
+        }
+    }
+}
 
