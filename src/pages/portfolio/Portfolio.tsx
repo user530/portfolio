@@ -1,5 +1,9 @@
 import React from 'react';
 import styles from './Portfolio.module.scss';
+import img1 from '../../public/about-img1.png';
+import img2 from '../../public/about-img2.png';
+import img3 from '../../public/about-img3.png';
+import photo from '../../public/about-photo.png';
 
 export const PortfolioPage: React.FC = () => {
     return (
@@ -18,9 +22,9 @@ export const PortfolioPage: React.FC = () => {
             </header>
 
             <main className={styles['content']}>
-                <div className={styles['container']}>
-                    <div className={styles['content-inner']}>
-                        <div className={styles['filter']}>
+                <section id='portfolio' className={styles['portfolio']}>
+                    <div className={styles['container']}>
+                        <div className={styles['cards-filter']}>
                             <button className={
                                 [styles['filter__btn'], styles['filter__btn--active']].join(' ')
                             }>
@@ -38,6 +42,7 @@ export const PortfolioPage: React.FC = () => {
                             <a
                                 href='#!'
                                 target='_blank'
+                                rel="noreferrer"
                                 className={styles['card']}>
 
                                 <div className={styles['card__info']}>
@@ -58,6 +63,7 @@ export const PortfolioPage: React.FC = () => {
                             <a
                                 href='#!'
                                 target='_blank'
+                                rel="noreferrer"
                                 className={styles['card']}>
 
                                 <div className={styles['card__info']}>
@@ -78,6 +84,7 @@ export const PortfolioPage: React.FC = () => {
                             <a
                                 href='#!'
                                 target='_blank'
+                                rel="noreferrer"
                                 className={styles['card']}>
 
                                 <div className={styles['card__info']}>
@@ -98,6 +105,7 @@ export const PortfolioPage: React.FC = () => {
                             <a
                                 href='#!'
                                 target='_blank'
+                                rel="noreferrer"
                                 className={styles['card']}>
 
                                 <div className={styles['card__info']}>
@@ -116,9 +124,36 @@ export const PortfolioPage: React.FC = () => {
                             </a>
 
                         </div>
+
+                        <div className={styles['cards-pagination']}>
+                            <button className={styles['btn']}>Load more</button>
+                        </div>
                     </div>
-                </div>
-            </main>
+                </section>
+
+                <section id='about' className={styles['about']}>
+                    <div className={styles['container']}>
+                        <div className={styles['about-inner']}>
+                            <div className={styles['about__left']}>
+                                <h2 className={styles['h2']}>Help To Build Your Dream Project</h2>
+                                <p>A digital agency is a business you hire to outsource your digital marketing efforts, instead of handling in-house.</p>
+                                <button className={
+                                    [styles['btn'],
+                                    styles['btn--special']].join(' ')
+                                }>Contact now</button>
+                            </div>
+                            <div className={styles['about__right']}>
+                                <img src={img1} alt="img-rect" className={styles['img-rect']} width={214} height={112} />
+                                <img src={img2} alt="img-star" className={styles['img-star']} width={200} height={220} />
+                                <img src={img3} alt="img-circle" className={styles['img-circle']} width={318} height={318} />
+                                <div className={styles['img-photo']}>
+                                    <img src={photo} alt="author" width={246} height={280} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main >
         </>
     )
 }
