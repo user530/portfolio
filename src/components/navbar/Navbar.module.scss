@@ -15,25 +15,9 @@ $accent: #EF6D58;
         column-gap: 35px;
     }
 
-    @media (max-width: 767px) {
-        position: fixed;
-        top: 64px;
-        right: 0;
-        bottom: 0;
-        left: 0;
-
-        background-color: #28293E;
+    &--mobile {
         flex-direction: column;
-        justify-content: flex-start;
-        row-gap: 15px;
-
-        z-index: 10;
-        transform: translateX(100%);
-        transition: 0.5s;
-
-        &--open {
-            transform: translateX(0);
-        }
+        row-gap: 35px
     }
 }
 

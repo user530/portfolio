@@ -8,14 +8,20 @@ interface NavigationLink {
     clickHandler?: (...args: any[]) => void;
 }
 
-interface INavbarComponent {
+export interface INavbar {
     links: NavigationLink[];
+    isMobile?: boolean;
 }
 
-export const Navbar: React.FC<INavbarComponent> = ({ links }: INavbarComponent) => {
+export const Navbar: React.FC<INavbar> = ({ links, isMobile }: INavbar) => {
     return (
         <nav
-            className={styles['nav-bar']}
+            className={
+                [
+                    styles['nav-bar'],
+                    isMobile ? styles['nav-bar--mobile'] : ''
+                ].join(' ')
+            }
         >
             {
                 links.map(
@@ -32,6 +38,6 @@ export const Navbar: React.FC<INavbarComponent> = ({ links }: INavbarComponent) 
                     )
                 )
             }
-        </nav>
+        </nav >
     )
 } 
