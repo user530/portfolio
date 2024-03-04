@@ -1,11 +1,11 @@
 import React from 'react';
 import { PortfolioPage } from './pages/portfolio/Portfolio';
-import { Navbar } from './components/navigation/Nav_bar';
+import { Header } from './components/header/Header';
 
 function App() {
   return (
     <>
-      <Navbar />
+      <Header />
       <PortfolioPage />
     </>
   );

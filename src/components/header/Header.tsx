@@ -1,12 +1,20 @@
 import React from 'react';
-import styles from './Nav_bar.module.scss';
+import styles from './Header.module.scss';
 import { FaCat } from "react-icons/fa";
 import { MdMenu, MdOutlineClose } from "react-icons/md";
+import { Logo } from '../logo/Logo';
+import { Navbar } from '../navbar/Navbar';
 
-export const Navbar: React.FC = () => {
+export const Header: React.FC = () => {
     const [width, setWidth] = React.useState<number>(window.innerWidth);
     const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
     const burgerMenu = React.useRef<HTMLElement>(null);
+
+    const navlinks = [
+        { name: 'Portfolio', href: '#portfolio' },
+        { name: 'About', href: '#about' },
+        { name: 'GitHub', href: 'https://github.com/user530', newTab: true },
+    ]
 
     const handleMenuClick = React.useCallback(() => {
         setMenuOpen(prev => !prev);
@@ -38,12 +46,18 @@ export const Navbar: React.FC = () => {
         <header className={styles['header']}>
             <div className={styles['container']}>
                 <div className={styles['header__content']}>
-                    <a href='/' className={styles['logo']}>
-                        <FaCat className={styles['logo__icon']} />
-                        <span className={styles['logo__text']}>TMV</span>
-                    </a>
+                    <Logo title={'TMV'} link={'/'} icon={FaCat} />
 
-                    <nav
+                    {
+                        /* <a href='/' className={styles['logo']}>
+                            <FaCat className={styles['logo__icon']} />
+                            <span className={styles['logo__text']}>TMV</span>
+                        </a> */
+                    }
+
+                    <Navbar links={navlinks} />
+
+                    {/* <nav
                         className={styles['nav-bar']}
                         ref={burgerMenu}
                     >
@@ -66,7 +80,7 @@ export const Navbar: React.FC = () => {
                             rel="noreferrer"
                             onClick={handleMenuClick}
                         >GitHub</a>
-                    </nav>
+                    </nav> */}
 
                     {
                         width < 768
