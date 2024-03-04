@@ -1,0 +1,28 @@
+$accent: #EF6D58;
+
+.contact-btn {
+    display: inline-block;
+    height: 3rem;
+    line-height: 3rem;
+    outline: 1px solid rgba(255,255,255, 0.3);
+    padding: 0 2.19rem;
+    color: white;
+    background-color: transparent;
+    border-radius: 7px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+        color: $accent;
+        outline-color: $accent;
+    }
+
+    &:focus {
+        box-shadow: 0 0 8px 3px white inset;
+    }
+
+    &:active {
+        box-shadow: 0 0 8px 3px $accent inset;
+    }
+}
