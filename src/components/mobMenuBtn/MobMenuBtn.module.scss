@@ -1,0 +1,28 @@
+$accent: #EF6D58;
+
+.burger-menu {
+    width: 48px;
+    height: 48px;
+    border: 1px solid white;
+    border-radius: 6px;
+
+    svg {
+        color: white;
+        width: 24px;
+        height: 24px;
+    }
+
+    &:hover {
+        border-color: $accent;
+    }
+
+    &:focus {
+        box-shadow: 0 0 5px 1px white inset;
+    }
+
+    &:active {
+        svg {
+            color: $accent;
+        }
+    }
+}
