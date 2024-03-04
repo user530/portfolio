@@ -1,106 +1,126 @@
 import React from 'react';
 import styles from './Header.module.scss';
-import { FaCat } from "react-icons/fa";
-import { MdMenu, MdOutlineClose } from "react-icons/md";
-import { Logo } from '../logo/Logo';
-import { Navbar } from '../navbar/Navbar';
+import { useMediaQuery } from 'react-responsive';
+import { FaCat, FaLinkedin, FaPhoneAlt, FaTelegram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
+import { ILogo, Logo } from '../logo/Logo';
+import { INavbar, Navbar } from '../navbar/Navbar';
+import { ContactBtn, IContactBtn } from '../contactBtn/ContactBtn';
+import { MobMenuBtn } from '../mobMenuBtn/MobMenuBtn';
+import { MobMenu } from '../mobMenu/MobMenu';
+import { ISocialIcons } from '../socialIcons/SocialIcons';
+
+const navLinks = [
+    { name: 'Portfolio', href: '#portfolio' },
+    { name: 'About', href: '#about' },
+    { name: 'GitHub', href: 'https://github.com/user530', newTab: true },
+];
+
+const socialLinks = [
+    { icon: FaPhoneAlt, href: 'tel:+79271557757', },
+    { icon: FaWhatsapp, href: 'https://api.whatsapp.com/send?phone=79271557757', },
+    { icon: FaTelegram, href: 'https://t.me/@tmv95' },
+    { icon: FaLinkedin, href: 'www.linkedin.com/in/magomed-timarsuev-7249581aa', newTab: true },
+];
 
 export const Header: React.FC = () => {
-    const [width, setWidth] = React.useState<number>(window.innerWidth);
-    const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
-    const burgerMenu = React.useRef<HTMLElement>(null);
+    const logoProps: ILogo = {
+        title: 'TMV',
+        link: '/',
+        icon: FaCat,
+    };
 
-    const navlinks = [
-        { name: 'Portfolio', href: '#portfolio' },
-        { name: 'About', href: '#about' },
-        { name: 'GitHub', href: 'https://github.com/user530', newTab: true },
-    ]
+    const navbarProps: INavbar = {
+        links: navLinks,
+    };
 
-    const handleMenuClick = React.useCallback(() => {
-        setMenuOpen(prev => !prev);
-    }, [])
+    const contactBtnProps: IContactBtn = {
+        text: 'Contact',
+        href: 'mailto:m.timarsuev@gmail.com',
+    };
 
-    React.useEffect(
-        () => {
-            // Toggle body overflow
-            const bodyEl = document.body;
-            bodyEl.style.overflow = menuOpen === true ? 'hidden' : 'auto';
-
-            // Toggle class
-            burgerMenu.current?.classList.toggle(styles['nav-bar--open']);
-        },
-        [menuOpen]
-    )
-
-    React.useEffect(
-        () => {
-            const resizeHandler = () => setWidth(window.innerWidth);
-            window.addEventListener('resize', resizeHandler);
-
-            return () => window.removeEventListener('resize', resizeHandler);
-        },
-        []
-    )
+    const socialIconsProps: ISocialIcons = {
+        icons: socialLinks,
+    };
 
     return (
         <header className={styles['header']}>
             <div className={styles['container']}>
                 <div className={styles['header__content']}>
-                    <Logo title={'TMV'} link={'/'} icon={FaCat} />
 
-                    {
-                        /* <a href='/' className={styles['logo']}>
-                            <FaCat className={styles['logo__icon']} />
-                            <span className={styles['logo__text']}>TMV</span>
-                        </a> */
-                    }
+                    <DefaultHeader
+                        logoProps={logoProps}
+                        navbarProps={navbarProps}
+                        contactBtnProps={contactBtnProps}
+                    />
 
-                    <Navbar links={navlinks} />
-
-                    {/* <nav
-                        className={styles['nav-bar']}
-                        ref={burgerMenu}
-                    >
-                        <a
-                            className={styles['nav-bar__btn']}
-                            href="#portfolio"
-                            onClick={handleMenuClick}
-                        >Portfolio</a>
-
-                        <a
-                            className={styles['nav-bar__btn']}
-                            href="#about"
-                            onClick={handleMenuClick}
-                        >About</a>
-
-                        <a
-                            className={styles['nav-bar__btn']}
-                            href="https://github.com/user530"
-                            target='_blank'
-                            rel="noreferrer"
-                            onClick={handleMenuClick}
-                        >GitHub</a>
-                    </nav> */}
-
-                    {
-                        width < 768
-                            ? <button
-                                className={styles['burger-menu']}
-                                onClick={handleMenuClick}
-                            >
-                                {
-                                    menuOpen ?
-                                        <MdOutlineClose />
-                                        : <MdMenu />
-                                }
-                            </button>
-                            : <a href='mailto:m.timarsuev@gmail.com' className={styles['contact-btn']}>
-                                Contact
-                            </a>
-                    }
+                    <MobileHeader
+                        logoProps={logoProps}
+                        navbarProps={navbarProps}
+                        socialIconsProps={
+                            {
+                                icons: [
+                                    { icon: FaEnvelope, href: contactBtnProps.href },
+                                    ...socialIconsProps.icons,
+                                ]
+                            }}
+                    />
 
                 </div>
             </div>
         </header>
     )
+}
+
+interface IMobileHeader {
+    logoProps: ILogo;
+    navbarProps: INavbar;
+    socialIconsProps: ISocialIcons;
+}
+
+const MobileHeader: React.FC<IMobileHeader> = ({ logoProps, navbarProps, socialIconsProps }: IMobileHeader) => {
+    const isMobile = useMediaQuery({ maxWidth: 767 });
+    const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
+
+    const clickHandler = () => {
+        setIsMenuOpen(prev => !prev);
+    }
+
+    React.useEffect(
+        () => {
+            // Toggle body scroll
+            document.body.style.overflow = isMenuOpen === true ? 'hidden' : 'auto';
+        },
+        [isMenuOpen]
+    )
+
+    return isMobile
+        ? <>
+            <Logo {...logoProps} />
+            <MobMenuBtn isOpen={isMenuOpen} clickHandler={clickHandler} />
+            <MobMenu
+                isOpen={isMenuOpen}
+                clickHandler={clickHandler}
+                navbarProps={navbarProps}
+                socialIconsProps={socialIconsProps}
+            />
+        </>
+        : null;
+}
+
+interface IDefaultHeader {
+    logoProps: ILogo;
+    navbarProps: INavbar;
+    contactBtnProps: IContactBtn;
+}
+
+const DefaultHeader: React.FC<IDefaultHeader> = ({ logoProps, navbarProps, contactBtnProps }: IDefaultHeader) => {
+    const isDefault = useMediaQuery({ minWidth: 768 });
+
+    return isDefault
+        ? <>
+            <Logo {...logoProps} />
+            <Navbar {...navbarProps} />
+            <ContactBtn {...contactBtnProps} />
+        </>
+        : null;
 }

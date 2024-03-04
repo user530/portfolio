@@ -4,7 +4,6 @@ import img1 from '../../public/about-img1.png';
 import img2 from '../../public/about-img2.png';
 import img3 from '../../public/about-img3.png';
 import photo from '../../public/about-photo.png';
-import { FaWhatsapp, FaTelegram, FaLinkedin, FaPhoneAlt } from 'react-icons/fa';
 
 export const PortfolioPage: React.FC = () => {
     return (
@@ -158,18 +157,13 @@ export const PortfolioPage: React.FC = () => {
                 </section>
             </main >
 
-            <footer className={styles['footer']}>
+            {/* <footer className={styles['footer']}>
                 <div className={styles['container']}>
                     <div className={styles['footer__inner']}>
-                        <div className={styles['social-block']}>
-                            <a href="tel:+79271557757"><FaPhoneAlt /></a>
-                            <a href="https://api.whatsapp.com/send?phone=79271557757"><FaWhatsapp /></a>
-                            <a href="https://t.me/@tmv95"><FaTelegram /></a>
-                            <a href="www.linkedin.com/in/magomed-timarsuev-7249581aa" target='_blank' rel='noreferrer'><FaLinkedin /></a>
-                        </div>
+                        <SocialIcons icons={socialLinks} />
                     </div>
                 </div>
-            </footer>
+            </footer> */}
         </>
     )
 }

@@ -1,0 +1,32 @@
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+    
+    @media (max-width: 1199px) {
+        padding: 0 80px;        
+    }
+    
+    @media (max-width: 767px) {
+        max-width: 470px;
+        padding: 0 23px;        
+    }
+}
+
+.footer {
+    background-color: #28293E;
+    color: white;
+
+    &__inner {
+        padding-block: 43px;
+
+        @media (max-width: 1199px) {
+            padding-block: 30px;
+        }
+
+        @media (max-width: 991px) {
+            padding-block: 24px;
+        }
+    }
+}
