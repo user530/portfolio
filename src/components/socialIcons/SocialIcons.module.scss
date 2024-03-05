@@ -6,6 +6,10 @@ $accent: #EF6D58;
     align-items: center;
     column-gap: 24px;
 
+    @media (max-width: 767px) {
+        column-gap: 16px;
+    }
+
     a {
         width: 48px;
         height: 48px;
