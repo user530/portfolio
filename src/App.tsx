@@ -74,7 +74,7 @@ const footerProps: IFooter = {
       { icon: FaPhoneAlt, href: 'tel:+79271557757', },
       { icon: FaWhatsapp, href: 'https://api.whatsapp.com/send?phone=79271557757', },
       { icon: FaTelegram, href: 'https://t.me/@tmv95' },
-      { icon: FaLinkedin, href: 'www.linkedin.com/in/magomed-timarsuev-7249581aa', newTab: true },
+      { icon: FaLinkedin, href: 'http://www.linkedin.com/in/magomed-timarsuev-7249581aa', newTab: true },
     ],
   }
 };
