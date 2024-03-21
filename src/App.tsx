@@ -58,6 +58,13 @@ const portfolioPageProps: IPortfolioPage = {
         tags: ['React', 'SocketIO', 'NestJs'],
         shortDescription: 'Multiplayer game portal with test game (Tic-Tac-Toe). Front end build using vanila React, data storage using Redux store, API services using Axios, SocketIO for the web socket interactions. Back end is NestJS and Postgres DB. This app is built in 3 layers - hub, lobby and game itself. Allows for the general, private (DM) and room based chats. Game is a placeholder, but abstraction will work for any turn based game.',
       },
+      {
+        name: 'Pool Demo',
+        imgName: 'PoolApp.jpg',
+        href: 'http://app4.m.timarsuev.fvds.ru',
+        tags: ['React'],
+        shortDescription: 'Simple pool demo simulation. The lack of libraries was the main condition of the test. Inelastic collision simulation with friction. Game allows user to interact with balls using mouse and select and change balls colors. Due to time constraints, continuous collision detection wasn\'t implemented. In cue mode - move cursor to hit balls (try toggling it if it clips through balls), in selection mode - choose color prom pallet and apply it.',
+      },
     ]
   },
   aboutSectionProps: {
