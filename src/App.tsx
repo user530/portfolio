@@ -65,6 +65,13 @@ const portfolioPageProps: IPortfolioPage = {
         tags: ['React'],
         shortDescription: 'Simple pool demo simulation. The lack of libraries was the main condition of the test. Inelastic collision simulation with friction. Game allows user to interact with balls using mouse and select and change balls colors. Due to time constraints, continuous collision detection wasn\'t implemented. In cue mode - move cursor to hit balls (try toggling it if it clips through balls), in selection mode - choose color prom pallet and apply it.',
       },
+      {
+        name: 'Vending Emulator',
+        imgName: 'VendingApp.jpg',
+        href: 'http://app5.m.timarsuev.fvds.ru',
+        tags: ['React'],
+        shortDescription: 'Stampsoft test assignment - Interactive UI for the vending machine. Emulates all main stages of the vending process: selection, purchase (card or cash), brewing and serv. Emulator class is the assignment requirment. Number keys emulates cash or card input, more information in the readme - https://github.com/user530/stampsoft_coffee. WARNING: Project adapted only for the Chrome browser and 1080x1920 resolution!',
+      },
     ]
   },
   aboutSectionProps: {
